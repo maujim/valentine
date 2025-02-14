@@ -39,7 +39,7 @@ export default function Fireworks() {
     }
   };
 
-  useFrame(state => {
+  useFrame(_state => {
     // Reduced spawn rate from 0.1 to 0.05
     if (particles.current.length < 500 && Math.random() < 0.05) {
       const x = (Math.random() - 0.5) * 3; // Reduced spread from 4 to 3

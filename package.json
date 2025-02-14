@@ -1,34 +1,36 @@
 {
   "name": "valentine",
-  "version": "0.1.0",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "start": "vite start",
-    "lint": "vite lint"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/cannon": "latest",
-    "@react-three/drei": "latest",
-    "@react-three/fiber": "latest",
-    "howler": "latest",
-    "lucide-react": "^0.454.0",
+    "@react-three/cannon": "^6.6.0",
+    "@react-three/drei": "^9.121.5",
+    "@react-three/fiber": "^8.17.14",
+    "@types/three": "^0.173.0",
+    "howler": "^2.2.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "three": "latest",
-    "vite": "^6.1.0"
+    "three": "^0.173.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.20.0",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
-    "@vitejs/plugin-react-swc": "^3.8.0",
-    "eslint": "^9.20.1",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "globals": "^15.15.0",
-    "typescript": "~5.7.3",
-    "typescript-eslint": "^8.24.0",
+    "@eslint/js": "^9.19.0",
+    "@types/howler": "^2.2.12",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^9.19.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.18",
+    "globals": "^15.14.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.22.0",
     "vite": "^6.1.0"
   }
 }

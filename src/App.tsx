@@ -1,10 +1,10 @@
 import { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment } from '@react-three/drei';
-import Heart from './heart';
-import Button3D from './3d-button';
-import ShatterButton from './shatter-button';
-import Fireworks from './fireworks';
+import Heart from './components/heart';
+import Button3D from './components/3d-button';
+import ShatterButton from './components/shatter-button';
+import Fireworks from './components/fireworks';
 import { Howl } from 'howler';
 
 // Preload success sound
@@ -14,7 +14,7 @@ const yesSound = new Howl({
   preload: true,
 });
 
-export default function Page() {
+export default function App() {
   const [showFireworks, setShowFireworks] = useState(false);
 
   const handleYesClick = () => {
