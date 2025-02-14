@@ -27,31 +27,52 @@ export default function Page() {
   }
 
   return (
-    <main className="relative h-screen w-full bg-gradient-to-b from-slate-900 to-slate-800">
-      <div className="absolute left-1/2 top-12 -translate-x-1/2 text-center z-10">
-        <h1 className="text-4xl font-bold text-rose-100 mb-4">Will you be my Valentine?</h1>
+    <main
+      style={{
+        width: "100vw",
+        height: "100vh",
+        background: "linear-gradient(to bottom, #1a1a1a, #2a2a2a)",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "48px",
+          transform: "translateX(-50%)",
+          textAlign: "center",
+          zIndex: 10,
+          color: "#fff",
+          fontFamily: "system-ui, sans-serif",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: "2.5rem",
+            fontWeight: "bold",
+          }}
+        >
+          Will you be my Valentine?
+        </h1>
       </div>
-      <div className="h-full w-full">
-        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-          <Suspense fallback={null}>
-            <color attach="background" args={["#1a1a1a"]} />
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} intensity={1} />
-            <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff69b4" />
+      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+        <Suspense fallback={null}>
+          <color attach="background" args={["#1a1a1a"]} />
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff69b4" />
 
-            <Heart />
+          <Heart />
 
-            {/* 3D Buttons */}
-            <Button3D text="Yes" position={[-1.5, -2, 0]} onClick={handleYesClick} />
-            <ShatterButton position={[1.5, -2, 0]} />
+          <Button3D text="Yes" position={[-1.5, -2, 0]} onClick={handleYesClick} />
+          <ShatterButton position={[1.5, -2, 0]} />
 
-            {showFireworks && <Fireworks />}
+          {showFireworks && <Fireworks />}
 
-            <OrbitControls enableZoom={false} minPolarAngle={Math.PI / 3} maxPolarAngle={Math.PI / 1.5} />
-            <Environment preset="warehouse" />
-          </Suspense>
-        </Canvas>
-      </div>
+          <OrbitControls enableZoom={false} minPolarAngle={Math.PI / 3} maxPolarAngle={Math.PI / 1.5} />
+          <Environment preset="warehouse" />
+        </Suspense>
+      </Canvas>
     </main>
   )
 }
