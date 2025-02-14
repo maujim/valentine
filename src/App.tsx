@@ -1,54 +1,54 @@
-import { Suspense, useState } from "react"
-import { Canvas } from "@react-three/fiber"
-import { OrbitControls, Environment } from "@react-three/drei"
-import Heart from "./heart"
-import Button3D from "./3d-button"
-import ShatterButton from "./shatter-button"
-import Fireworks from "./fireworks"
-import { Howl } from "howler"
+import { Suspense, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Environment } from '@react-three/drei';
+import Heart from './heart';
+import Button3D from './3d-button';
+import ShatterButton from './shatter-button';
+import Fireworks from './fireworks';
+import { Howl } from 'howler';
 
 // Preload success sound
 const yesSound = new Howl({
-    // TODO: doesn't exist
-  src: ["/fireworks.wav"],
+  // TODO: doesn't exist
+  src: ['/fireworks.wav'],
   preload: true,
-})
+});
 
 export default function Page() {
-  const [showFireworks, setShowFireworks] = useState(false)
+  const [showFireworks, setShowFireworks] = useState(false);
 
   const handleYesClick = () => {
-    yesSound.play()
-    setShowFireworks(true)
+    yesSound.play();
+    setShowFireworks(true);
     // setTimeout(() => {
     //   alert("Yay! Happy Valentine's Day! ❤️")
     // }, 500)
-  }
+  };
 
   return (
     <main
       style={{
-        width: "100vw",
-        height: "100vh",
-        background: "linear-gradient(to bottom, #1a1a1a, #2a2a2a)",
+        width: '100vw',
+        height: '100vh',
+        background: 'linear-gradient(to bottom, #1a1a1a, #2a2a2a)',
       }}
     >
       <div
         style={{
-          position: "absolute",
-          left: "50%",
-          top: "48px",
-          transform: "translateX(-50%)",
-          textAlign: "center",
+          position: 'absolute',
+          left: '50%',
+          top: '48px',
+          transform: 'translateX(-50%)',
+          textAlign: 'center',
           zIndex: 10,
-          color: "#fff",
-          fontFamily: "system-ui, sans-serif",
+          color: '#fff',
+          fontFamily: 'system-ui, sans-serif',
         }}
       >
         <h1
           style={{
-            fontSize: "2.5rem",
-            fontWeight: "bold",
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
           }}
         >
           Will you be my Valentine?
@@ -56,7 +56,7 @@ export default function Page() {
       </div>
       <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
         <Suspense fallback={null}>
-          <color attach="background" args={["#1a1a1a"]} />
+          <color attach="background" args={['#1a1a1a']} />
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} intensity={1} />
           <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff69b4" />
@@ -73,6 +73,5 @@ export default function Page() {
         </Suspense>
       </Canvas>
     </main>
-  )
+  );
 }
-

@@ -1,19 +1,19 @@
-"use client"
+'use client';
 
-import { useRef } from "react"
-import { useFrame } from "@react-three/fiber"
-import type * as THREE from "three"
+import { useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
+import type * as THREE from 'three';
 
 export default function Heart() {
-  const heartRef = useRef<THREE.Group>(null)
+  const heartRef = useRef<THREE.Group>(null);
 
   // Gentle floating animation
-  useFrame((state) => {
+  useFrame(state => {
     if (heartRef.current) {
-      heartRef.current.rotation.y += 0.005
-      heartRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1
+      heartRef.current.rotation.y += 0.005;
+      heartRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1;
     }
-  })
+  });
 
   return (
     <>
@@ -34,6 +34,5 @@ export default function Heart() {
         />
       </mesh>
     </>
-  )
+  );
 }
-
