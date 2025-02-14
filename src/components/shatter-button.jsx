@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { Physics, usePlane, useBox } from '@react-three/cannon';
 import { Text } from '@react-three/drei';

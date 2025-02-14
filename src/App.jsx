@@ -9,6 +9,8 @@ import { Howl } from 'howler';
 
 const yesSound = new Howl({
   src: ['/fireworks.wav'],
+  loop: true,
+  volume: 0.5,
   preload: true,
 });
 
@@ -18,9 +20,10 @@ export default function App() {
   const handleYesClick = () => {
     yesSound.play();
     setShowFireworks(true);
-    // setTimeout(() => {
-    //   alert("Yay! Happy Valentine's Day! ❤️")
-    // }, 500)
+    setTimeout(() => {
+      setShowFireworks(false);
+      yesSound.stop();
+    }, 3000);
   };
 
   return (

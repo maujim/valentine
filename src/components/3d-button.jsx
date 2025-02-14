@@ -1,10 +1,7 @@
-'use client';
-
 import { Text } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useRef, useState } from 'react';
 import * as THREE from 'three';
-
 
 export default function Button3D({ text, position, onClick }) {
   const meshRef = useRef(null);
