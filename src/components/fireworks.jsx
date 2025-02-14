@@ -39,7 +39,7 @@ export default function Fireworks() {
     particles.current = particles.current.filter(particle => {
       particle.position.add(particle.velocity);
       particle.velocity.y -= 0.001;
-      particle.life -= 0.02;
+      particle.life -= 0.025;
 
       if (particle.life > 0 && particleIndex < 500) {
         positions[particleIndex * 3] = particle.position.x;
@@ -68,7 +68,7 @@ export default function Fireworks() {
         <bufferAttribute attach="attributes-position" count={positions.length / 3} array={positions} itemSize={3} />
         <bufferAttribute attach="attributes-color" count={colors.length / 3} array={colors} itemSize={3} />
       </bufferGeometry>
-      <pointsMaterial size={2} vertexColors transparent opacity={0.8} blending={THREE.AdditiveBlending} />
+      <pointsMaterial size={1} vertexColors transparent opacity={0.8} blending={THREE.AdditiveBlending} />
     </points>
   );
 }

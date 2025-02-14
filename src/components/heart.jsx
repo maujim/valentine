@@ -1,8 +1,16 @@
 import * as THREE from 'three';
-import { useEffect,useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 
-export default function HeartMesh() {
+import { useLoader } from '@react-three/fiber';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+
+function MyModel() {
+  const model = useLoader(GLTFLoader, '/heart-yousef.glb');
+  return <primitive object={model.scene} />;
+}
+
+export default function HeartMesh({ fireworks }) {
   const heartRef = useRef();
 
   // Create a heart shape
@@ -27,6 +35,9 @@ export default function HeartMesh() {
     bevelSegments: 10,
   };
 
+  const geometry = new THREE.ExtrudeGeometry(createHeartShape(), extrudeSettings);
+  geometry.center();
+
   // Add a slight rotation animation
   useFrame(() => {
     if (heartRef.current) {
@@ -34,15 +45,8 @@ export default function HeartMesh() {
     }
   });
 
-  useEffect(() => {
-    if (heartRef.current) {
-      heartRef.current.geometry.center(); // Centers geometry around its own origin
-    }
-  }, []);
-
   return (
-    <mesh ref={heartRef}>
-      <extrudeGeometry args={[createHeartShape(), extrudeSettings]} />
+    <mesh ref={heartRef} geometry={geometry}>
       <meshStandardMaterial
         color="#ff69b4"
         metalness={0.8}

@@ -62,12 +62,12 @@ export default function App() {
           <pointLight position={[10, 10, 10]} intensity={1} />
           <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff69b4" />
 
-          <Heart />
+          <Heart fireworks={showFireworks} />
+
+          {showFireworks && <Fireworks />}
 
           <Button3D text="Yes" position={[-1.5, -2, 0]} onClick={handleYesClick} />
           <ShatterButton position={[1.5, -2, 0]} />
-
-          {showFireworks && <Fireworks />}
 
           <OrbitControls enableZoom={false} minPolarAngle={Math.PI / 3} maxPolarAngle={Math.PI / 1.5} />
           <Environment preset="warehouse" />
