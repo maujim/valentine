@@ -5,14 +5,9 @@ import { useFrame } from '@react-three/fiber';
 import { useRef, useState } from 'react';
 import * as THREE from 'three';
 
-interface ButtonProps {
-  text: string;
-  position: [number, number, number];
-  onClick: () => void;
-}
 
-export default function Button3D({ text, position, onClick }: ButtonProps) {
-  const meshRef = useRef<THREE.Mesh>(null);
+export default function Button3D({ text, position, onClick }) {
+  const meshRef = useRef(null);
   const [hovered, setHovered] = useState(false);
 
   useFrame(() => {

@@ -10,19 +10,7 @@ const shatterSound = new Howl({
   preload: true,
 });
 
-interface ShatterPieceProps {
-  position: [number, number, number];
-  rotation?: [number, number, number];
-  velocity?: [number, number, number];
-  angularVelocity?: [number, number, number];
-}
-
-function ShatterPiece({
-  position,
-  rotation = [0, 0, 0],
-  velocity = [0, 0, 0],
-  angularVelocity = [0, 0, 0],
-}: ShatterPieceProps) {
+function ShatterPiece({ position, rotation = [0, 0, 0], velocity = [0, 0, 0], angularVelocity = [0, 0, 0] }) {
   const [ref] = useBox(() => ({
     mass: 0.1,
     position,
@@ -63,7 +51,7 @@ function Ground() {
   );
 }
 
-export default function ShatterButton({ position }: { position: [number, number, number] }) {
+export default function ShatterButton({ position }) {
   const [shattered, setShattered] = useState(false);
   const [hovered, setHovered] = useState(false);
 

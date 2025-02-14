@@ -7,9 +7,7 @@ import ShatterButton from './components/shatter-button';
 import Fireworks from './components/fireworks';
 import { Howl } from 'howler';
 
-// Preload success sound
 const yesSound = new Howl({
-  // TODO: doesn't exist
   src: ['/fireworks.wav'],
   preload: true,
 });
