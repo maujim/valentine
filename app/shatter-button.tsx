@@ -5,9 +5,8 @@ import { Physics, usePlane, useBox } from "@react-three/cannon"
 import { Text } from "@react-three/drei"
 import { Howl } from "howler"
 
-// Preload sound
 const shatterSound = new Howl({
-  src: ["https://assets.codepen.io/28963/glass-break.mp3"], // Using a reliable hosted sound
+  src: ["/glass-break.wav"],
   preload: true,
 })
 

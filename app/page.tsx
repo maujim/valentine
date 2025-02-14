@@ -11,7 +11,8 @@ import { Howl } from "howler"
 
 // Preload success sound
 const yesSound = new Howl({
-  src: ["https://assets.codepen.io/28963/success.mp3"], // Using a reliable hosted sound
+    // TODO: doesn't exist
+  src: ["/fireworks.wav"],
   preload: true,
 })
 
@@ -21,9 +22,9 @@ export default function Page() {
   const handleYesClick = () => {
     yesSound.play()
     setShowFireworks(true)
-    setTimeout(() => {
-      alert("Yay! Happy Valentine's Day! ❤️")
-    }, 500)
+    // setTimeout(() => {
+    //   alert("Yay! Happy Valentine's Day! ❤️")
+    // }, 500)
   }
 
   return (
